@@ -1,27 +1,27 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import ProductsScreen from './components/ProductsScreen'
-
-
+import ProductsScreen from "./components/ProductsScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-    <Stack.Navigator initialRouteName="ProductsScreen">
-      <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
-    </Stack.Navigator>
-  </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="ProductsScreen">
+          <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <StatusBar style="auto" />
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
