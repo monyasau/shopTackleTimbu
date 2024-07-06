@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View, ScrollView, StyleSheet } from "react-native"
+import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from "react-native"
 import Product from "./Product";
 import SkeletonProduct from './SkeletonProduct';
 
@@ -14,7 +14,7 @@ const ProductsScreen = () => {
             const data = await storeDataJson;
             setStoreData(data);
             setError(false)
-            setLoading(true)
+            setLoading(false)
         }
         catch (error) {
             console.log(error);
@@ -29,7 +29,7 @@ const ProductsScreen = () => {
     return (
 
         loading ? <>
-            <Text style={{textAlign:"center",fontSize:20,backgroundColor:"#e0e0e0", padding:10,fontWeight:700}}>Loading...</Text>
+            <Text style={{ textAlign: "center", fontSize: 20, backgroundColor: "#e0e0e0", padding: 10, fontWeight: 700 }}>Loading...</Text>
             <ScrollView contentContainerStyle={styles.productsContainer}>
                 <View style={styles.contentContainer}>
                     {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map((skeleton) => <SkeletonProduct key={skeleton} />)}
@@ -37,14 +37,20 @@ const ProductsScreen = () => {
             </ScrollView>
         </>
             :
-            <ScrollView contentContainerStyle={styles.productsContainer}>
-                <View style={styles.contentContainer}>
-                    <Text style={{ textAlign: "left", width: "95%" }}>Products on shelf</Text>
-                    {storeData.items.map((item) => (
-                        <Product productData={item} key={item.id} />
-                    ))}
-                </View>
-            </ScrollView>
+                (error ?
+                    <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+                        <Text style={{fontSize:30,fontWeight:"700",color:"red"}}>ERROR</Text>
+                        <Text style={{fontSize:20,textAlign:"center"}}>Please, check you internet connection and try again in a moment</Text>
+                        <TouchableOpacity></TouchableOpacity>
+                    </View>
+                    : <ScrollView contentContainerStyle={styles.productsContainer}>
+                    <View style={styles.contentContainer}>
+                        <Text style={{ textAlign: "left", width: "95%" }}>Products on shelf</Text>
+                        {storeData.items.map((item) => (
+                            <Product productData={item} key={item.id} />
+                        ))}
+                    </View>
+                </ScrollView>)
 
     );
 }
