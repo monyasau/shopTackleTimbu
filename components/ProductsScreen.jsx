@@ -28,38 +28,40 @@ const ProductsScreen = () => {
 
     return (
 
-        loading ?
-        <ScrollView contentContainerStyle={styles.productsContainer}>
+        loading ? <>
+            <Text style={{textAlign:"center",fontSize:20,backgroundColor:"#e0e0e0", padding:10,fontWeight:700}}>Loading...</Text>
+            <ScrollView contentContainerStyle={styles.productsContainer}>
                 <View style={styles.contentContainer}>
-                   { [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].map((skeleton)=><SkeletonProduct key={skeleton}/>)}
+                    {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map((skeleton) => <SkeletonProduct key={skeleton} />)}
                 </View>
-        </ScrollView>
-                :
-                <ScrollView contentContainerStyle={styles.productsContainer}>
-                    <View style={styles.contentContainer}>
-                        <Text style={{ textAlign: "left", width: "95%" }}>Products on shelf</Text>
-                        {storeData.items.map((item) => (
-                            <Product productData={item} key={item.id} />
-                        ))}
-                    </View>
-                </ScrollView>
+            </ScrollView>
+        </>
+            :
+            <ScrollView contentContainerStyle={styles.productsContainer}>
+                <View style={styles.contentContainer}>
+                    <Text style={{ textAlign: "left", width: "95%" }}>Products on shelf</Text>
+                    {storeData.items.map((item) => (
+                        <Product productData={item} key={item.id} />
+                    ))}
+                </View>
+            </ScrollView>
 
-                );
+    );
 }
 
-                const styles = StyleSheet.create({
-                    productsContainer: {
-                    alignItems: "center",
-                marginHorizontal: "auto",
-                width: "95%",
-                paddingBottom: 10,
+const styles = StyleSheet.create({
+    productsContainer: {
+        alignItems: "center",
+        marginHorizontal: "auto",
+        width: "95%",
+        paddingVertical: 10,
     },
-                contentContainer: {
-                    justifyContent: "space-between",
-                flexWrap: "wrap",
-                gap: 10,
-                flexDirection: "row",
+    contentContainer: {
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        gap: 10,
+        flexDirection: "row",
     }
 })
 
-                export default ProductsScreen;
+export default ProductsScreen;
