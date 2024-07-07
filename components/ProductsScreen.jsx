@@ -49,7 +49,7 @@ const ProductsScreen = ({reloadStore}) => {
                     </View>
                     : <ScrollView contentContainerStyle={styles.productsContainer}>
                     <View style={styles.contentContainer}>
-                        <Text style={{ textAlign: "left", width: "95%" }}>Products on shelf</Text>
+                        <Text style={{ textAlign: "left", width: "95%" }}>Click on a product to view more details of it</Text>
                         {storeData.items.map((item) => (
                             <Product productData={item} key={item.id} />
                         ))}
