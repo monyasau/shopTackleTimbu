@@ -33,8 +33,8 @@ Access the demonstration of the **shopTackle** app on Appetize.io:
 ```npx expo start```
 
 ## Screenshots:
-<img src="./assets/screenshots/Loadingscreen.png" alt="Products Screen">
-<img src="./assets/screenshots/Loadingscreen.png" alt="Products Screen" width="300">
-<img src="./assets/screenshots/Loadingscreen.png" alt="Products Screen" width="300">
-<img src="./assets/screenshots/Loadingscreen.png" alt="Products Screen" width="300">
-<img src="./assets/screenshots/Loadingscreen.png" alt="Products Screen" width="300">
+<img src="./assets/screenshots/Loadingscreen.png" alt="loading Screen" width="300">
+<img src="./assets/screenshots/ProductsScreen.png" alt="Products Screen" width="300">
+<img src="./assets/screenshots/ProductModal.png" alt="Product modal" width="300">
+<img src="./assets/screenshots/errorScreen.png" alt="Error Screen" width="300">
+<img src="./assets/screenshots/ProductModal2.png" alt="Products Screen" width="300">
