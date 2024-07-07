@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "shopTackleTimbu",
+    "name": "shopTackle",
     "slug": "shopTackleTimbu",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,10 +18,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.monyasau.shopTackleTimbu"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ffdacbf5-2c14-4838-a928-f42efadab4a4"
+      }
     }
   }
 }
