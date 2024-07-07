@@ -3,18 +3,18 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Modal } from "react-na
 import { AntDesign } from '@expo/vector-icons';
 
 const ProductModal = ({ active, setActive, productData }) => {
-    if (active) {
+    if (!active) {
         return null;
     }
     console.log(active);
     return (
         <Modal
-            transparent onRequestClose={() => setActive(true)}
+            transparent onRequestClose={() => setActive(false)}
             animationType="slide">
             <View style={style.modalSurrounding}>
                 <View style={style.modalContainer}>
-                    <TouchableOpacity style={style.close} onPress={()=>setActive(!active)}>
-                    <AntDesign name="close"size={24} color="black" />
+                    <TouchableOpacity style={style.close} onPress={() => setActive(false)}>
+                        <AntDesign name="close" size={24} color="black" />
                         <Text>Close</Text>
                     </TouchableOpacity>
                     {productData.photos && productData.photos[0] ? (
@@ -26,9 +26,14 @@ const ProductModal = ({ active, setActive, productData }) => {
 
                     }
                     <View style={style.modalInfoContainer}>
+                        {productData.description ? <Text>{"Description: " + productData.description}</Text>
+                            :
 
-                        <Text >{productData.name}</Text>
-                        <Text style={{ fontWeight: 700 }}>₦ {productData.current_price[0].NGN}</Text>
+                            <>
+                                <Text style={{ fontWeight: 700 }}>₦ {productData.current_price[0].NGN}</Text>
+                                <Text >{productData.name}</Text>
+                            </>
+}
                     </View>
                 </View>
             </View>
@@ -38,10 +43,10 @@ const ProductModal = ({ active, setActive, productData }) => {
 
 
 const Product = ({ productData }) => {
-    const [modalActive, setModalActive] = useState(true)
+    const [modalActive, setModalActive] = useState(false)
     return (
         <>
-            <TouchableOpacity style={style.container} onPress={() => setModalActive(false)}>
+            <TouchableOpacity style={style.container} onPress={() => setModalActive(true)}>
                 <View>
                     {productData.photos && productData.photos[0] ? (
                         <Image style={style.image} source={{ uri: `https://api.timbu.cloud/images/${productData.photos[0].url}` }} />
@@ -94,10 +99,10 @@ const style = StyleSheet.create({
     modalContainer: {
     },
     modalInfoContainer: {
-        marginVertical:10,
-        borderRadius:8,
+        marginVertical: 10,
+        borderRadius: 8,
         padding: 4,
-        backgroundColor:"#cccccc"
+        backgroundColor: "#cccccc"
     },
     modalImage: {
         borderWidth: 1,
@@ -106,16 +111,16 @@ const style = StyleSheet.create({
         marginHorizontal: "auto",
         height: "75%",
     },
-    close:{
-        marginVertical:10,
-        marginLeft:"auto",
-        flexDirection:"row",
-         borderWidth:1,
-         borderColor:"red",
-         backgroundColor:"white",
-         borderRadius:100,
-         padding:10,
-         alignItems:"center"
+    close: {
+        marginVertical: 10,
+        marginLeft: "auto",
+        flexDirection: "row",
+        borderWidth: 1,
+        borderColor: "red",
+        backgroundColor: "white",
+        borderRadius: 100,
+        padding: 10,
+        alignItems: "center"
 
     },
     imagePlaceHolder: {
