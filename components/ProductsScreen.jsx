@@ -4,12 +4,13 @@ import Product from "./Product";
 import SkeletonProduct from './SkeletonProduct';
 
 
-const ProductsScreen = () => {
+const ProductsScreen = ({reloadStore}) => {
     const [storeData, setStoreData] = useState({ items: [] })
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(true)
     const getStoreData = async () => {
         try {
+            setLoading(true)
             let storeDataJson = await fetch("https://api.timbu.cloud/products?organization_id=4da78e0dd7ab42988da4e8014490cff7&Appid=67HGWYE946GG1CI&Apikey=5994a513c2084c5e9fc5294a8ee5908620240705095509566488&reverse_sort=false&page=1&size=19").then((response) => response.json());
             const data = await storeDataJson;
             setStoreData(data);
@@ -25,6 +26,9 @@ const ProductsScreen = () => {
     useEffect(() => {
         getStoreData();
     }, []);
+    useEffect(() => {
+        getStoreData();
+    }, [reloadStore]);
 
     return (
 
