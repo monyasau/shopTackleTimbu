@@ -97,6 +97,7 @@ const style = StyleSheet.create({
         justifyContent: "center",
     },
     modalContainer: {
+        paddingVertical:15
     },
     modalInfoContainer: {
         marginVertical: 10,
