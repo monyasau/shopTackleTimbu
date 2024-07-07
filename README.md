@@ -15,16 +15,16 @@ This is a project built with react native expo with absolutely zero dependencies
 ## Appetize.io Demo:
 
 Access the demonstration of the **shopTackle** app on Appetize.io:
-- [Appetize.io Demo Link](https://appetize.io/app/w4lcdx7fremnditpptl6gicokm)
+- [Appetize.io Demo Link](https://appetize.io/app/b_47jfxerczn3cqltmcc34lz6o44)
 
 ## App download link:
-- [App Download Link](https://expo.dev/artifacts/eas/w4T7tmFa9EEuesovLMgzBv.apk)
+- [App Download Link](https://expo.dev/artifacts/eas/wdabUJAkkpgVZPJmjjpWyx.apk)
 
 ## Setup Instructions:
 ### Clone Repository:
 ```bash
-   git clone https://github.com/monyasau/shopTackle.git
-   cd shopTackle 
+   git clone https://github.com/monyasau/shopTackleTimbu.git
+   cd shopTackleTimbu
 ```
 ### Install Dependencies:
 ```npm install```
